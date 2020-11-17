@@ -31,11 +31,13 @@ RSpec.describe User, type: :model do
   describe '.authenticate_with_credentials' do
     it 'should be case insensitive for email' do
       @user = User.new(name: 'name', email: 'TeSt@test.com', password: 'password', password_confirmation: 'password') 
-      expect(@user.email).to eq('test@test.com')
+      expect(User.authenticate_with_credentials(@user.email,@user.password)).to eq('test@test.com')
     end
     it 'should allow before and trailing empty spaces email' do
-      @user = User.new(name: 'name', email: ' test@test.com', password: 'password', password_confirmation: 'password') 
-      expect(@user.email).to eq('test@test.com')
+      @user = User.create!(name: 'name', email: 'test@test.com', password: 'password', password_confirmation: 'password') 
+      @email = ' test@test.com'
+      @password= 'password'
+      expect(User.authenticate_with_credentials(@email,@password)).to eq(@user)
     end
   end 
 end
