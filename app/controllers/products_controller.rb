@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  http_basic_authenticate_with name: "Jungle", password: "book"
+  # http_basic_authenticate_with name: "Jungle", password: "book"
   def index
     @products = Product.all.order(created_at: :desc)
   end
