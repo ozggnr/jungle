@@ -3,12 +3,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_email(params[:email])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
+    if user = User.authenticate_with_credentials(params[:email], params[:password])
       redirect_to '/'
+      session[:user_id] = user.id
     else
-      flash.now.alert = "Email or password is invalid"
+      session[:user_id] = nil
       redirect_to '/login'
     end
   end
@@ -17,4 +16,5 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to '/login'
   end
+  
 end
