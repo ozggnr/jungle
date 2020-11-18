@@ -4,13 +4,13 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 ## Final Product
 ### Homepage 
-!["homepage screenshot"](homepage.png)
+!["homepage screenshot"](docs/homepage.png)
 ### Details 
-!["see-details screenshot"](details.png)
+!["see-details screenshot"](docs/details.png)
 ### Add to Your Cart
-!["add-to-your-cart screenshot"]()
+!["add-to-your-cart screenshot"](docs/add-cart.png)
 ### Make Payment
-!["make-payment screenshot"]()
+!["make-payment screenshot"](docs/make-payment.png)
 ## Setup
 
 1. Run `bundle install` to install dependencies
